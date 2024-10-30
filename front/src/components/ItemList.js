@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Card, ListGroup, Container, Row, Col } from "react-bootstrap";
+import api from '../services/api'
 
 const ItemList = () => {
     const [items, setItems] = useState([]);
@@ -8,7 +9,7 @@ const ItemList = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get("/api/Django/");
+                const response = await api.get("/api/Django/");
                 setItems(response.data);
             } catch (error) {
                 console.error("Error fetching data:", error);
